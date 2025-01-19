@@ -2,7 +2,6 @@ import styles from "@/styles/Footer.module.css";
 import Link from "next/link";
 
 export function Footer(props) {
-  console.table(props);
   const { name, number, array, bool, comp, children } = props;
   return (
     <footer className={styles.footer}>
