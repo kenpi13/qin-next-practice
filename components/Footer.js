@@ -1,4 +1,5 @@
 import styles from "@/styles/Footer.module.css";
+import Link from "next/link";
 
 export function Footer(props) {
   console.table(props);
@@ -13,6 +14,8 @@ export function Footer(props) {
       <br></br>
       真偽値は{bool}
       {children}
+      <a href="/about">aタグ遷移</a>
+      <Link href="/about">Link遷移</Link>
     </footer>
   );
 }
