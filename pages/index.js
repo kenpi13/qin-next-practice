@@ -1,6 +1,7 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const items = [
@@ -26,39 +27,22 @@ export default function Home() {
     }
   ];
   // useCallBackを使って再生成を防ぐ
-  const handleClick = useCallback((e) => {
-    alert('おああ');
+  // const handleClick = useCallback((e) => {
+  //   alert('おああ');
+  // },[]);
+
+  // useEffect
+  useEffect(() => {
+    document.body.style.backgroundColor = "lightBlue"
+    return () => {
+      document.body.style.backgroundColor = ""
+    }
   },[]);
   return (
     <>
       <Header></Header>
       <div>Hello World</div>
-      <button onClick={() => {alert('あああ')}}>ボタン</button>
-      <a
-        href="/about"
-        onClick={(e) => {
-          e.preventDefault();
-        }}
-      >Aboutへ遷移ボタン
-      </a>
-      <a
-        href="/about"
-        onClick={handleClick}
-      >Aboutへ遷移ボタンメソッド取り出し
-      </a>
-      {
-        items.map((item) => {
-          return (
-            <div key={item.name}>
-              <ul>
-                <li>{item.name}</li>
-                <li>{item.age}</li>
-                <li>{item.sex}</li>
-              </ul>
-            </div>
-          )
-        })
-      }
+      <Link href="/about">Aboutへ</Link>
       <Footer
         name="kenpi"
         number={111}
