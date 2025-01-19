@@ -6,7 +6,15 @@ export default function Home() {
     <>
       <Header></Header>
       <div>Hello World</div>
-      <Footer name="kenpi"></Footer>
+      <Footer
+        name="kenpi"
+        number={111}
+        array={[1,3,5]}
+        bool={true}
+        comp={<div>あああ</div>}
+      >
+        あいうえお
+      </Footer>
     </>
   );
 }
