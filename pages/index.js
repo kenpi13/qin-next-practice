@@ -1,5 +1,6 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { useCallback } from 'react';
 
 export default function Home() {
   const items = [
@@ -23,11 +24,28 @@ export default function Home() {
       age: 19,
       sex: "women"
     }
-  ]
+  ];
+  // useCallBackを使って再生成を防ぐ
+  const handleClick = useCallback((e) => {
+    alert('おああ');
+  },[]);
   return (
     <>
       <Header></Header>
       <div>Hello World</div>
+      <button onClick={() => {alert('あああ')}}>ボタン</button>
+      <a
+        href="/about"
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+      >Aboutへ遷移ボタン
+      </a>
+      <a
+        href="/about"
+        onClick={handleClick}
+      >Aboutへ遷移ボタンメソッド取り出し
+      </a>
       {
         items.map((item) => {
           return (
