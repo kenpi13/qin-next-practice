@@ -30,18 +30,21 @@ export default function Home() {
   // const handleClick = useCallback((e) => {
   //   alert('おああ');
   // },[]);
-
+  const [foo, setFoo] = useState(0);
+  const handleClick = () => {
+    setFoo(foo => foo + 1);
+  }
+  // const handleClick = useCallback((e) => {
+  //   setFoo(foo => foo + 1);
+  // },[]);
   // useEffect
   useEffect(() => {
+    console.log("foo");
     document.body.style.backgroundColor = "lightBlue"
     return () => {
       document.body.style.backgroundColor = ""
     }
   },[]);
-  const [foo, setFoo] = useState(0);
-  const handleClick = () => {
-    setFoo(foo + 1);
-  }
   return (
     <>
       <Header></Header>
