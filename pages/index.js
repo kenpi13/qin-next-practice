@@ -31,9 +31,18 @@ export default function Home() {
   //   alert('おああ');
   // },[]);
   const [foo, setFoo] = useState(0);
+  const [text, setText] = useState("aaa");
   const handleClick = () => {
     setFoo(foo => foo + 1);
   }
+  const textChange = useCallback((e) => {
+    if(e.target.value.length > 5) {
+      alert("文字数オーバーです");
+      setText("");
+      return
+    }
+    setText(e.target.value);
+  })
   // const handleClick = useCallback((e) => {
   //   setFoo(foo => foo + 1);
   // },[]);
@@ -51,6 +60,7 @@ export default function Home() {
       <div>Hello World</div>
       <h1>{foo}</h1>
       <button onClick={handleClick}>+1</button>
+      <input type='text' value={text} onChange={e => textChange(e)} />
       <Link href="/about">Aboutへ</Link>
       <Footer
         name="kenpi"
