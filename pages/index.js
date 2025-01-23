@@ -1,6 +1,6 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
@@ -38,10 +38,16 @@ export default function Home() {
       document.body.style.backgroundColor = ""
     }
   },[]);
+  const [foo, setFoo] = useState(0);
+  const handleClick = () => {
+    setFoo(foo + 1);
+  }
   return (
     <>
       <Header></Header>
       <div>Hello World</div>
+      <h1>{foo}</h1>
+      <button onClick={handleClick}>+1</button>
       <Link href="/about">Aboutへ</Link>
       <Footer
         name="kenpi"
